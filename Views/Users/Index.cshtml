@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Firstproject.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout="~/views/shared/_Admin.cshtml";
+}
+
+
+<p>
+    <div>       <a asp-action="Create" class="btn btn-danger" >Create New</a>
+    </div>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            First Name            
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                phone Number
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+               Image
+            </th>
+            <th>
+              Address
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+               <img src=@Url.Content("~/Image/"+ item.Imagepath) asp-append-version="true" height="100" width="100" alt="Alternate Text" />
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-info" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.UserId">Details</a> |
+                <a asp-action="Delete" class="btn btn-info" asp-route-id="@item.UserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,170 @@
+﻿@model Firstproject.Models.ContactU
+@{
+         Layout="~/views/shared/_Home.cshtml";
+     }
+
+
+
+
+
+
+
+
+
+
+    
+
+   @* <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="index.html" class="logo m-0 float-start">Property</a>
+
+            <ul
+              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+            >
+              <li><a href="index.html">Home</a></li>
+              <li class="has-children">
+                <a href="properties.html">Properties</a>
+                <ul class="dropdown">
+                  <li><a href="#">Buy Property</a></li>
+                  <li><a href="#">Sell Property</a></li>
+                  <li class="has-children">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown">
+                      <li><a href="#">Sub Menu One</a></li>
+                      <li><a href="#">Sub Menu Two</a></li>
+                      <li><a href="#">Sub Menu Three</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="about.html">About</a></li>
+              <li class="active"><a href="contact.html">Contact Us</a></li>
+            </ul>*@
+@*
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>*@
+
+    <div
+      class="hero page-inner overlay"
+      style="background-image: url(@Url.Content("~/Image/"+@ViewBag.HomeImage))"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center mt-5">
+            <h1 class="heading" data-aos="fade-up">Contact Us</h1>
+
+            <nav
+              aria-label="breadcrumb"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <ol class="breadcrumb text-center justify-content-center">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li
+                  class="breadcrumb-item active text-white-50"
+                  aria-current="page"
+                >
+                  Contact
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-lg-4 mb-5 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="contact-info">
+              <div class="address mt-2">
+                <i class="icon-room"></i>
+                <h4 class="mb-2">Location:</h4>
+                <p>
+                    @ViewBag.cont        <br />
+                  
+                </p>
+              </div>
+
+              @*<div class="open-hours mt-4">
+                <i class="icon-clock-o"></i>
+                <h4 class="mb-2">Open Hours:</h4>
+                <p>
+                  Sunday-Friday:<br />
+                  11:00 AM - 2300 PM
+                </p>
+              </div>*@
+
+              <div class="email mt-4">
+                <i class="icon-envelope"></i>
+                <h4 class="mb-2">Email:</h4>
+                <p>@ViewBag.em</p>
+              </div>
+
+              <div class="phone mt-4">
+                <i class="icon-phone"></i>
+                <h4 class="mb-2">Call:</h4>
+                <p>@ViewBag.tel</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <form asp-action="Contact"  enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-6 mb-3">
+                 <label asp-for="Name" class="form-label">your Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                 
+                <label asp-for="YEmail" class="form-label"> your Email</label>
+                <input asp-for="YEmail" class="form-control" />
+                <span asp-validation-for="YEmail" typeof="email" class="text-danger"></span>
+                </div>
+                <div class="col-12 mb-3">
+                  <label asp-for="Subject" class="form-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+                <div class="col-12 mb-3">
+                     <label asp-for="Message"  class="form-label"></label>
+                <input asp-for="Message"  class="form-control" />
+                <span asp-validation-for="Message" typeof="text" class="text-danger"></span>
+                
+                </div>
+
+                <div class="col-12">
+                  <input
+                    type="submit"
+                    value="Send Message"
+                    class="btn btn-primary"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.untree_co-section -->
+
+    

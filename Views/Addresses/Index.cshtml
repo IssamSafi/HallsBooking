@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Firstproject.Models.Address>
+
+@{
+    ViewData["Title"] = "Index";
+        Layout="~/views/shared/_Admin.cshtml";
+
+}
+
+@*<h1>Index</h1>
+*@
+<p>
+    <a asp-action="Create" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Street)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AddressId" class="btn btn-info">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AddressId" class="btn btn-info">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AddressId" class="btn btn-info">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
